@@ -6,15 +6,17 @@ class SpecialInputBox extends Component {
         super(props,context);
         this.onInputValueChange = this.onInputValueChange.bind(this);
         this.onLeavingInput = this.onLeavingInput.bind(this);
-        this.state = {inputValue:'', caption: ''};
+        this.state = {inputValue:'', caption: '', captionWithName: ''};
     }
 
     onInputValueChange(event) {
+        this.setState({caption: '', captionWithName: ''});
         this.setState({inputValue: event.target.value});
     }
 
     onLeavingInput(event) {
-        this.setState({caption: `You are splendid, ${this.state.inputValue}`});
+        this.setState({caption: `Martzafoaico, somaldoaco! Afaaraaaa !! AAFFAAAARAA!`});
+        this.setState({captionWithName: `O sa trimit politia dupa tine, ${this.state.inputValue}!`});
         console.log(this.state);
     }
 
@@ -23,7 +25,8 @@ class SpecialInputBox extends Component {
         <div>    
         <p> this is a special input box. just type your name and you will be happy</p>
         <input value={this.state.inputValue} type='text' onChange={this.onInputValueChange} onBlur={this.onLeavingInput} />
-        <p>{this.state.caption}</p>    
+        <h1>{this.state.caption}</h1>    
+        <p>{this.state.captionWithName}</p>
         </div>
         );
     }
